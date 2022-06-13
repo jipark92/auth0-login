@@ -2,11 +2,13 @@ import { useAuth0} from '@auth0/auth0-react'
 
 export default function Login() {
 
-    const {loginWithRedirect} = useAuth0()
+    const {loginWithRedirect, isAuthenticated} = useAuth0()
 
     return (
-        <div>
-            <button onClick={()=>loginWithRedirect()}>Login</button>
-        </div>
+            !isAuthenticated &&(
+            <div>
+                <button onClick={()=>loginWithRedirect()}>Login</button>
+            </div>
+        )
     )
 }
