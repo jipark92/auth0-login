@@ -3,9 +3,10 @@ import JSONPretty from 'react-json-pretty'
 
 export default function Profile() {
 
-    const {user} = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
 
     return (
+        isAuthenticated &&(
         <div>
             {/* <img src={user.picture} alt={user.name}/> */}
             {/* <h2>{user.name}</h2> */}
@@ -13,5 +14,6 @@ export default function Profile() {
             <JSONPretty data={user}/>
             {/* {JSON.stringify(user,null,2)} */}
         </div>
+        )
     )
 }
